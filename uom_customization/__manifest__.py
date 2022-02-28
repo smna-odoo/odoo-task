@@ -14,6 +14,7 @@
     'depends': ['contacts', 'sale_management'],
     'data': [
         'views/res_partner_view.xml',
+        'security/ir.model.access.csv',
         ],
 
     # Other
