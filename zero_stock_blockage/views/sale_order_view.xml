@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add new field in sale.order -->
+    <record id="zero_staock_blockage_id" model="ir.ui.view">
+        <field name="name">sale order</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='payment_term_id']" position="after">
+                <field name="zero_stock_approval" attrs="{'readonly' : [('is_approval_right','=',False)]}" />
+                <field name="is_approval_right" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

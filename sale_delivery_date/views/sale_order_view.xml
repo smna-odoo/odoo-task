@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add new field in sale.order -->
+    <record id="sale_order_inherit" model="ir.ui.view">
+        <field name="name">Days to deliver</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group/field[@name='picking_policy']" position="after">
+                <field name="appointment_date" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

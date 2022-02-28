@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Add new page in res.partner -->
+    <record id="res_partner_inventory_tab" model="ir.ui.view">
+        <field name="name">res partner inventory tab</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+                <page name="inventory" string="Inventory">
+                    <field name="product_line" >
+                        <tree editable = "bottom">
+                            <field name="category_id" invisible="1"/>
+                            <field name="product_id" />
+                            <field name="uom_id" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add new field in res.partner -->
+    <!-- <record id="res_partner_inherit" model="ir.ui.view">
+        <field name="name">res partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//group/div[@name='parent_pricelists']" position="after">
+                <div>
+                    <group>
+                        <field name="days_to_deliver" />
+                    </group>
+                </div>
+            </xpath>
+        </field>
+    </record> -->
+
+
+    <!-- Add new field in res.partner -->
+    <record id="res_partner_inherit" model="ir.ui.view">
+        <field name="name">res partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"></field>
+        <field name="arch" type="xml">
+            <field name="property_product_pricelist" position="after">
+                <field name="days_to_deliver" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
