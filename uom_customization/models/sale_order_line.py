@@ -13,7 +13,7 @@ class SaleOrder(models.Model):
     
     @api.onchange('product_id')
     def set_uom(self):
-        for products in self:
-            for product in products.order_id.partner_id.product_line:
-                if products.order_id.partner_id and products.product_id == product.product_id:
-                    products.product_uom = product.uom_id
+        self.ensure_one()
+        for products in self.order_id.partner_id.product_line:
+            if self.product_id == products.product_id:
+                self.product_uom = products.uom_id

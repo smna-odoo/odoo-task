@@ -23,10 +23,10 @@ class SaleOrder(models.Model):
     
     def action_confirm(self):
         for record in self:
-            if record.zero_stock_approval == True:
+            if record.zero_stock_approval:
                 return super(SaleOrder, self).action_confirm()
             else:
-                raise UserError(_("Please Check Zero Stock Approval field"))
+                raise UserError("Please Check Zero Stock Approval field")
     
     
     #-------------------------------
@@ -37,8 +37,3 @@ class SaleOrder(models.Model):
     def _compute_approval_rights(self):
         for order in self:
             order.is_approval_right = True if self.env.user.has_group("sales_team.group_sale_manager") else False
-            
-            
-            
-       
-            

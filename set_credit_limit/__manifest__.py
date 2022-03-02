@@ -1,9 +1,9 @@
 {
     #  Information
-    'name': 'zero stock blockage',
+    'name': 'set_credit_limit',
     'version': '15.0.1',
-    'summary': 'zero stock blockage',
-    'description': 'zero stock blockage',
+    'summary': 'Set Credit Limit',
+    'description': 'Set Credit Limit',
     'category': 'Sale',
 
     # Author
@@ -11,9 +11,9 @@
     'website': 'https://www.odoo.com',
 
     # Dependency
-    'depends': ['sale'],
+    'depends': ['contacts','account','sale_management'],
     'data': [
-        'views/sale_order_view.xml',
+        'views/res_partner.xml',
         ],
 
     # Other
