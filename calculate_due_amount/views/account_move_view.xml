@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- inherit customer form view -->
+    <record id="account_move_form_view_inherited_customer" model="ir.ui.view">
+        <field name="name">account move</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_out_invoice_tree"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_residual_signed']" position="before">
+                <field name="amount_paid"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- inherit vendor form view -->
+    <record id="account_move_form_view_inherited_vendor" model="ir.ui.view">
+        <field name="name">account move</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_in_invoice_bill_tree"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total_signed']" position="after">
+                <field name="amount_paid"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
