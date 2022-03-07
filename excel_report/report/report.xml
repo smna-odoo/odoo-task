@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+    id="invoice_xlsx_report"
+    model="account.move"
+    string="Print to XLSX"
+    report_type="xlsx"
+    name="excel_report.report_invoice_xlsx"
+    file="excel_report.report_invoice_xlsx"
+/>
+
+</odoo>
