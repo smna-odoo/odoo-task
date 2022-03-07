@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Add Start time action button in mrp.workorder -->
+    <record id="action_workorder_start_time" model="ir.actions.server">
+        <field name="name">Start Timer</field>
+        <field name="model_id" ref="mrp_workorder.model_mrp_workorder"/>
+        <field name="binding_model_id" ref="mrp_workorder.model_mrp_workorder" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for rec in records:
+                if not rec.is_user_working:
+                    rec.button_start()
+        </field>
+    </record>
+
+    <!-- Add Start time action button in mrp.workorder -->
+    <record id="action_workorder_stop_time" model="ir.actions.server">
+        <field name="name">Stop Timer</field>
+        <field name="model_id" ref="mrp_workorder.model_mrp_workorder"/>
+        <field name="binding_model_id" ref="mrp_workorder.model_mrp_workorder" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for rec in records:
+                if rec.is_user_working:
+                    rec.button_pending()
+        </field>
+    </record>
+
+    
+    <!-- Add Start time action button in mrp.workorder -->
+    <record id="action_workorder_done" model="ir.actions.server">
+        <field name="name">Done</field>
+        <field name="model_id" ref="mrp_workorder.model_mrp_workorder"/>
+        <field name="binding_model_id" ref="mrp_workorder.model_mrp_workorder" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for rec in records:
+                rec.button_finish()
+        </field>
+    </record>
+
+</odoo>
