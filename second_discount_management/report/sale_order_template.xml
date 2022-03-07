@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="inherit_new_field_in_sale_order_report" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//tr/th[@name='th_discount']" position="after">
+            <th class="text-right">2nd Disc. %</th>
+        </xpath>
+
+        <xpath expr="//t/td[@name='td_taxes']" position="before">
+            <td name="td_priceunit" class="text-right">
+                <span t-field="line.second_discount"/>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>
