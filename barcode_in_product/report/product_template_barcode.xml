@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_barcode">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="packaging">
+                    <div class="col-4" style="padding:0;">
+                        <table class="table table-condensed" style="border: 1px solid black !important;width: 3in;">
+                            <tr>
+                                <th style="text-align: left;">
+                                    <strong t-field="packaging.name" />
+                                </th>
+                            </tr>
+                            <t t-if="packaging.barcode_number">
+                                <tr>
+                                    <td style="text-align: center; vertical-align: middle;" class="col-5">
+                                        <div t-field="packaging.barcode_number" t-options="{'widget': 'barcode', 'symbology': 'auto', 'width': 600, 'height': 150, 'img_style': 'width:100%;height:20%;'}" />
+                                        <span t-field="packaging.barcode_number" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+</odoo>
